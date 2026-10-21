@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.DS_Store
+
+# Wallet and order secrets
+*.seed
+*.private.json
+*.checkpoint.json
+*.sync.status.json
+*-order.json
+northstar-wallet-state-*/
+northstar-submissions-*/
+northstar-submission-*/
+
+*.compact

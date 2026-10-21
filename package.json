@@ -1,0 +1,96 @@
+{
+  "name": "@northstardex/sdk",
+  "version": "0.2.0",
+  "description": "NorthStar DEX transaction builder for Midnight.",
+  "keywords": [
+    "northstar",
+    "midnight",
+    "dex",
+    "amm",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NorthStarDEX/NorthStar-SDK.git"
+  },
+  "homepage": "https://github.com/NorthStarDEX/NorthStar-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/NorthStarDEX/NorthStar-SDK/issues"
+  },
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "artifacts/NorthStarDEX/release.json",
+    "artifacts/NorthStarDEX/compiler/contract-info.json",
+    "artifacts/NorthStarDEX/contract/index.js",
+    "artifacts/NorthStarDEX/contract/index.d.ts",
+    "artifacts/NorthStarDEX/keys/*.prover",
+    "artifacts/NorthStarDEX/keys/*.verifier",
+    "artifacts/NorthStarDEX/zkir/*.zkir",
+    "artifacts/NorthStarDEX/zkir/*.bzkir",
+    "README.md",
+    "NOTICE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "prepare": "npm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:files": "node scripts/check-published-files.mjs",
+    "test": "npm run build && node --experimental-test-module-mocks --test --test-timeout=60000 tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-js": "2.5.0",
+    "@midnight-ntwrk/compact-runtime": "0.16.0",
+    "@midnight-ntwrk/ledger-v8": "8.1.0",
+    "@midnight-ntwrk/midnight-js-contracts": "4.0.4",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "4.0.4",
+    "@midnight-ntwrk/midnight-js-network-id": "4.0.4",
+    "@midnight-ntwrk/midnight-js-node-zk-config-provider": "4.0.4",
+    "@midnight-ntwrk/onchain-runtime-v3": "3.0.0",
+    "@midnight-ntwrk/wallet-sdk-abstractions": "2.1.0",
+    "@midnight-ntwrk/wallet-sdk-address-format": "3.1.2",
+    "@midnight-ntwrk/wallet-sdk-dust-wallet": "4.1.0",
+    "@midnight-ntwrk/wallet-sdk-facade": "4.0.1",
+    "@midnight-ntwrk/wallet-sdk-hd": "3.0.2",
+    "@midnight-ntwrk/wallet-sdk-shielded": "3.0.1",
+    "@midnight-ntwrk/wallet-sdk-unshielded-wallet": "3.1.0",
+    "@polkadot/api": "16.5.6",
+    "@polkadot/util": "14.0.3"
+  },
+  "overrides": {
+    "@midnight-ntwrk/compact-js": "2.5.0",
+    "@midnight-ntwrk/compact-runtime": "0.16.0",
+    "@midnight-ntwrk/ledger-v8": "$@midnight-ntwrk/ledger-v8",
+    "@midnight-ntwrk/midnight-js-contracts": "$@midnight-ntwrk/midnight-js-contracts",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "$@midnight-ntwrk/midnight-js-indexer-public-data-provider",
+    "@midnight-ntwrk/midnight-js-node-zk-config-provider": "$@midnight-ntwrk/midnight-js-node-zk-config-provider",
+    "@midnight-ntwrk/onchain-runtime-v3": "$@midnight-ntwrk/onchain-runtime-v3",
+    "@midnight-ntwrk/wallet-sdk-abstractions": "$@midnight-ntwrk/wallet-sdk-abstractions",
+    "@midnight-ntwrk/wallet-sdk-address-format": "$@midnight-ntwrk/wallet-sdk-address-format",
+    "@midnight-ntwrk/wallet-sdk-dust-wallet": "$@midnight-ntwrk/wallet-sdk-dust-wallet",
+    "@midnight-ntwrk/wallet-sdk-facade": "$@midnight-ntwrk/wallet-sdk-facade",
+    "@midnight-ntwrk/wallet-sdk-hd": "$@midnight-ntwrk/wallet-sdk-hd",
+    "@midnight-ntwrk/wallet-sdk-shielded": "$@midnight-ntwrk/wallet-sdk-shielded",
+    "@midnight-ntwrk/wallet-sdk-unshielded-wallet": "$@midnight-ntwrk/wallet-sdk-unshielded-wallet"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "prettier": "3.3.3",
+    "typescript": "^6.0.3"
+  }
+}
